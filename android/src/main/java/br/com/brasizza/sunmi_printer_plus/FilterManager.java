@@ -7,7 +7,7 @@ import java.nio.*;
 
 public class FilterManager {
     public Bitmap printImage(Bitmap bitmap, final AttributesImage attributesImage) {
-        final int dots_per_line = 576;
+        final int dots_per_line = 384;
         final int n = dots_per_line * attributesImage.getScale() / 16;
 
         if (bitmap != null) {
