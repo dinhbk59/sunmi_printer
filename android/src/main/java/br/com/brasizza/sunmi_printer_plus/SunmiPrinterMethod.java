@@ -188,7 +188,7 @@ public class SunmiPrinterMethod {
         try {
             FilterManager manager = new FilterManager();
             AttributesImage attributesImage = new AttributesImage();
-            attributesImage.graphicFilter = 2;
+            attributesImage.graphicFilter = 6;
             Bitmap newBitmap = manager.printImage(bitmap, attributesImage);
             _woyouService.printBitmap(newBitmap, this._callback());
             return true;
