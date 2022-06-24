@@ -6,8 +6,13 @@ import android.util.Log;
 import java.nio.*;
 
 public class FilterManager {
+    int paperWidth; // 384 or 576
+
+    FilterManager(int paperWidth) {
+        this.paperWidth = paperWidth;
+    }
     public Bitmap printImage(Bitmap bitmap, final AttributesImage attributesImage) {
-        final int dots_per_line = 384;
+        final int dots_per_line = this.paperWidth;
         final int n = dots_per_line * attributesImage.getScale() / 16;
 
         if (bitmap != null) {

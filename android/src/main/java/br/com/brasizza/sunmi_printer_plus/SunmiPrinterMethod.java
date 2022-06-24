@@ -184,11 +184,11 @@ public class SunmiPrinterMethod {
         }
     }
 
-    public Boolean printImage(Bitmap bitmap) {
+    public Boolean printImage(Bitmap bitmap, int graphicFilter, int printerPaperWidth) {
         try {
-            FilterManager manager = new FilterManager();
+            FilterManager manager = new FilterManager(printerPaperWidth);
             AttributesImage attributesImage = new AttributesImage();
-            attributesImage.graphicFilter = 6;
+            attributesImage.graphicFilter = graphicFilter;
             Bitmap newBitmap = manager.printImage(bitmap, attributesImage);
             _woyouService.printBitmap(newBitmap, this._callback());
             return true;
