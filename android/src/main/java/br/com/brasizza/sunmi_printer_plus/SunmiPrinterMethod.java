@@ -373,7 +373,7 @@ public class SunmiPrinterMethod {
         return new ICallback() {
             @Override
             public void onRunResult(boolean isSuccess) throws RemoteException {
-                Log.e("isSuccess:" + isSuccess);
+                Log.e("iii", "isSuccess:" + isSuccess);
             }
 
             @Override
