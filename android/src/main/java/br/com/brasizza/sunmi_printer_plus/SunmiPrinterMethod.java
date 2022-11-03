@@ -190,6 +190,7 @@ public class SunmiPrinterMethod {
             AttributesImage attributesImage = new AttributesImage();
             attributesImage.graphicFilter = graphicFilter;
             Bitmap newBitmap = manager.printImage(bitmap, attributesImage);
+            Log.e("iii", "Start print ====");
             _woyouService.printBitmap(newBitmap, this._callback());
             return true;
         } catch (RemoteException e) {
@@ -373,11 +374,12 @@ public class SunmiPrinterMethod {
         return new ICallback() {
             @Override
             public void onRunResult(boolean isSuccess) throws RemoteException {
-                Log.e("iii", "isSuccess:" + isSuccess);
+                Log.e("iii", "onRunResult:" + isSuccess);
             }
 
             @Override
             public void onReturnString(String result) throws RemoteException {
+                Log.e("iii", "onReturnString:" + result);
             }
 
             @Override
@@ -387,6 +389,7 @@ public class SunmiPrinterMethod {
 
             @Override
             public void onPrintResult(int code, String msg) throws RemoteException {
+                Log.e("iii", "onPrintResult:" + code + " Msg: " + msg);
             }
 
             @Override
