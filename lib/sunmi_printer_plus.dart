@@ -335,13 +335,17 @@ class SunmiPrinter {
   ///
   ///With this method you can print an image in your printer.
   ///Just follow the examples that you can print even an image from web or an asset inside your project
-  static Future<void> printImage(
+  static Future<int> printImage(
       Uint8List img, int graphicFilter, int paperWidth) async {
     Map<String, dynamic> arguments = <String, dynamic>{};
     arguments.putIfAbsent("bitmap", () => img);
     arguments["graphicFilter"] = graphicFilter;
     arguments["paperWidth"] = paperWidth;
-    await _channel.invokeMethod("PRINT_IMAGE", arguments);
+    final result = await _channel.invokeMethod("PRINT_IMAGE", arguments);
+    if (result == null) {
+      return 0;
+    }
+    return result!;
   }
 
   ///*startTransactionPrint*

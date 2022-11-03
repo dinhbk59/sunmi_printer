@@ -175,9 +175,12 @@ public class SunmiPrinterPlugin implements FlutterPlugin, MethodCallHandler {
         int graphicFilter = call.argument("graphicFilter");
         int paperWidth = call.argument("paperWidth");
         Bitmap bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
-        sunmiPrinterMethod.printImage(bitmap, graphicFilter, paperWidth);
-        result.success(true);
-
+        Boolean printResult = sunmiPrinterMethod.printImage(bitmap, graphicFilter, paperWidth);
+        if (printResult) {
+            result.success(1);
+        } else {
+          result.success(0);
+        }
         break;
       case "GET_PRINTER_MODE":
         final int mode_code = sunmiPrinterMethod.getPrinterMode();
