@@ -196,6 +196,8 @@ public class SunmiPrinterMethod {
             return false;
         } catch (NullPointerException e) {
             return false;
+        } catch (Exception e) {
+            return false;
         }
     }
 
