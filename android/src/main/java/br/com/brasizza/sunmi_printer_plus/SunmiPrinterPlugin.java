@@ -177,7 +177,7 @@ public class SunmiPrinterPlugin implements FlutterPlugin, MethodCallHandler {
         Bitmap bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
         Boolean printResult = sunmiPrinterMethod.printImage(bitmap, graphicFilter, paperWidth);
         if (printResult) {
-            result.success(0);
+            result.success(1);
         } else {
           result.success(0);
         }
